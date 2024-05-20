@@ -1,0 +1,64 @@
+
+<ion-header color="rojo">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Buzón de sugerencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="galeria-2">
+      <div class="galeria-2-esp">
+      <div class="galeria-2-esp-icono">
+        <img src="./assets/milogo.jpg" alt="logo">
+      </div>
+      <div class="galeria-2-info">
+
+        <h3>¡Nos interesa saber tu opinión!</h3>
+        <p>Tienes una queja, sugerencia o felicitación, escríbela en la caja de texto.</p>
+
+        <form  (ngSubmit)="enviarFormulario(correo.value, mensaje.value)">
+
+          <ion-item fill="outline">
+            <ion-input placeholder="Correo" type="email" #correo></ion-input>
+          </ion-item>
+
+          <ion-item fill="outline" class="mensaje" >
+            <ion-textarea style="min-height: 60px;"
+              placeholder="Mesaje"
+             
+              #mensaje
+            >
+            </ion-textarea>
+          </ion-item>
+
+             <ion-button expand="medium" color="rojo" class="ion-margin-top galeria-2-boton"  type="submit">
+             Enviar 
+            </ion-button>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+ 
+  <h3 class="mtitulo">Sistema Distrital para la Gestión de Peticiones Ciudadanas</h3>
+
+  <div class="options">
+  <button class="custom-button" id="btncpeticion" (click)="abrirURL('https://bogota.gov.co/sdqs/crear-peticion')">
+    <img src="./assets/icon/icono-peticiones.png" alt="Icono">
+    Crea tu petición
+    <ion-icon class="arrow-icon" name="chevron-forward-outline"></ion-icon> <!-- Icono de flecha a la derecha -->
+  </button>
+
+  <button class="custom-button" id="btnconsultapeticion" (click)="abrirURL('https://bogota.gov.co/sdqs/consultar-peticion')">
+    <img src="./assets/icon/icono-consulta.png"  alt="Icono">
+    Consulta tu petición
+    <ion-icon class="arrow-icon" name="chevron-forward-outline"></ion-icon> <!-- Icono de flecha a la derecha -->
+  </button>
+  </div>
+
+</ion-content>
+

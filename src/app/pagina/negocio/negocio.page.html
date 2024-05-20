@@ -1,0 +1,127 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">
+    <!-- icono volver inicio-->
+    <ion-buttons slot="start">
+      <!--<ion-icon slot="start" name="home-outline" size="large" style="padding-left:10px"></ion-icon>-->
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      <ion-title>Conoce tu localidad</ion-title>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="pruebace">
+  <ion-col *ngFor="let result of results" style="padding: 0;">
+
+<div class="contenedor">
+    <div class="superior">
+        <ion-slides class="timagen">
+          <ion-slide mode="ios" pager="ios" scrollbar="ios"
+            *ngFor="let img of images(result.banner_negocio,result.url_negocio)" id="pru">
+
+            <ion-img [src]="img">
+
+            </ion-img>
+          </ion-slide>
+
+        </ion-slides>
+    </div> 
+
+      <div class="c-logoo">
+        <ion-avatar color="transparent">
+          <ion-img [src]="urlImagen(result.url_negocio,result.logo_negocio)" style="width: 90px; height: 90px;">
+          </ion-img>
+        </ion-avatar>
+      </div>
+     
+</div><!--cierra contenedor -->
+
+<!-- termina codigo para prueba -->
+
+    <!-- logo negicio-->
+    <div id="c-principal">
+      <!-- informacion negocio-->
+      <div id="c-info">
+        <ion-grid>
+          <ion-row>
+
+            <ion-col size="12" style="margin-top: 8%; display: flex; flex-direction: column; align-items: center;">
+              <ion-title >{{result.nombre_negocio}}</ion-title>
+            </ion-col>
+               
+            <ion-col style="display: flex; justify-content: center;flex-direction: column;align-items: center;">
+              <ion-label style="padding-top:4px;"><a href="http://{{result.paginaweb_negocio}}">{{result.paginaweb_negocio}}</a></ion-label>
+              <ion-label style="padding-top:4px;">{{result.direccion_negocio}}</ion-label>
+            </ion-col>
+
+            <div style="display: flex;justify-content: center;width: 100%;text-align: center; ">
+              <ion-title size="small">Nuestros Servicios </ion-title>
+            </div>
+
+            <ion-col size="12">
+
+              <ion-item lines="none" *ngFor="let servicio of serviciosNegocio(result.servicios_negocio)">
+                <ion-icon name="checkmark-outline"></ion-icon>
+                <ion-label>{{ servicio }}</ion-label>
+              </ion-item>
+            </ion-col>
+
+            <ion-col size="12">
+
+              <ion-item lines="none">
+
+                <ion-button fill="outline" color="bordes" href="tel:{{ result.telefono_negocio}}">
+                  Llamar
+                  <ion-icon name="call" color="success" size="large" slot="start"></ion-icon>
+
+                </ion-button>
+
+                <ion-button href="{{ result.dirmapa_negocio }}" fill="outline" color="bordes">
+                  Como Llegar?
+                  <ion-icon name="location" color="danger" size="large" slot="start"></ion-icon>
+
+                </ion-button>
+                
+
+              </ion-item>
+              <!-- <iframe src="https://goo.gl/maps/TJGE7Hq1Ud1RxR3y8" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> -->
+              
+
+            </ion-col>
+
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-toolbar style="width: 100%;">
+                <div id="redes">
+                  <ion-button *ngIf="result.face_negocio" href={{result.face_negocio}} expand="block" fill="clear"
+                    shape="round">
+                    <ion-icon name="logo-facebook" color="facebook"></ion-icon>
+                  </ion-button>
+                  <ion-button *ngIf="result.insta_negocio" href={{result.insta_negocio}} expand="block" fill="clear"
+                    shape="round">
+                    <ion-icon name="logo-instagram" color="instagram"></ion-icon>
+                  </ion-button>
+
+
+                  <!-- <ion-icon name="logo-twitter" color="twtter"></ion-icon>
+                  <ion-icon name="logo-whatsapp" color="whatsapp"></ion-icon> -->
+                </div>
+
+
+              </ion-toolbar>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </div>
+
+    </div>
+
+
+  </ion-col>
+</ion-content>
+
+<ion-footer>
+
+
+</ion-footer>

@@ -1,0 +1,43 @@
+<ion-header color="morado">
+  <ion-toolbar color="morado">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Tramites y Servicios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- categorias tramite-->
+  <ion-segment scrollable="true" color="morado" (ionChange)="categoriaTramite($event)">
+
+    <ion-segment-button color="morado" *ngFor="let catTramite of catTramites"
+      value={{catTramite.nombre_categoriatramite}}>
+      <ion-label color="morado" style="white-space:pre-line; text-align: left; font-size: 12px;">
+        {{ catTramite.nombre_categoriatramite }}
+      </ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let tramite of tramites | filtro:categoriaT:'nombre_categoriatramite'" size="12">
+        <ion-card [routerLink]="['/tramite/',tramite.id_tramite]">
+
+          <img [src]="urlImagen(tramite.nombre_tramite,tramite.imagen_tramite)" alt="">
+          <ion-card-header>
+            <ion-card-subtitle>{{ tramite.nombre_categoriatramite}}</ion-card-subtitle>
+            <ion-card-title>{{ tramite.nombre_tramite }} </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{ tramite.descripcion_tramite}}
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

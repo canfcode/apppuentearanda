@@ -1,0 +1,66 @@
+<ion-header color="morado">
+  <ion-toolbar color="morado">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Mantente Informado</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-title color="morado" style="font-size: 15px; text-align: center;" class="ion-padding">Mantente informado de lo
+    que pasa en tu localidad</ion-title>
+  <div>
+
+    
+    <!-- imagen ultima notica-->
+
+
+    <ion-slides>
+      <ion-slide mode="ios" pager="ios" scrollbar="ios" *ngFor="let noticia of noticias">
+
+        <ion-img [src]="urlImagen(noticia.titulo_noticia,noticia.imagen_noticia)">
+
+        </ion-img>
+      </ion-slide>
+
+    </ion-slides>
+
+    <!-- segmentos categoria-->
+    <ion-segment scrollable="true" color="morado" (ionChange)="categoriaNoticia($event)">
+
+      <ion-segment-button color="morado" *ngFor="let catNoticia of catNoticias"
+        value={{catNoticia.nombre_categorianoticia}}>
+        <ion-label color="morado" style="white-space:pre-line; text-align: left; font-size: 12px;">
+          {{ catNoticia.nombre_categorianoticia }}
+        </ion-label>
+      </ion-segment-button>
+
+    </ion-segment>
+
+  </div>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let noticia of noticias | filtro:categoriaN:'nombre_categorianoticia'" size="12">
+        <ion-card [routerLink]="['/noticia/',noticia.id_noticia]">
+
+          <img [src]="urlImagen(noticia.titulo_noticia,noticia.imagen_noticia)" alt="">
+          <ion-card-header>
+            <ion-card-subtitle>{{ noticia.nombre_categorianoticia }}</ion-card-subtitle>
+            <ion-card-title>{{ noticia.titulo_noticia }} </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{ noticia.resumen_noticia }}
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

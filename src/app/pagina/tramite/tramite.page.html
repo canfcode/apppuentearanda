@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">
+    <!-- icono volver inicio-->
+    <ion-buttons slot="start">
+      <!--<ion-icon slot="start" name="home-outline" size="large" style="padding-left:10px"></ion-icon>-->
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      <ion-title></ion-title>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col *ngFor="let tramite of tramite">
+    <ion-card>
+      <img [src]="urlImagen(tramite.nombre_tramite,tramite.imagen_tramite)" alt="">
+      <ion-card-header>
+        <ion-card-subtitle>{{tramite.nombre_categoriatramite}}</ion-card-subtitle>
+        <ion-card-title>{{tramite.nombre_tramite}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text [innerHTML]="tramite.contenido_tramite | safehtml ">        
+        </ion-text>        
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+  
+</ion-content>

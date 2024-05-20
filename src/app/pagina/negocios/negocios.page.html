@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">
+
+    <!-- icono volver inicio-->
+    <ion-buttons slot="start" routerLink="/inicio">
+      <ion-icon slot="start" name="home-outline" size="large" style="padding-left:10px"></ion-icon>
+    </ion-buttons>
+
+    <!-- barra de busqueda -->
+    <ion-searchbar 
+    placeholder="Buscar..." 
+    type="text"
+    (ionChange)="buscarNegocio( $event )"
+    debounce="250"
+    animated
+    >
+    </ion-searchbar>
+
+    <!-- icino para noticias -->
+    <ion-buttons slot="end" routerLink="/noticias">
+      <ion-icon slot="start" name="document-outline" size="large" style="padding-left:10px"></ion-icon>
+    </ion-buttons>
+
+    <!-- finaliza -->
+
+  </ion-toolbar>
+    <!-- segmentos categoria-->
+    
+    <ion-segment scrollable color="morado" (ionChange)="categoriaNegocio($event)" style="background-color: #ffffff;">
+      <ion-segment-button color="morado" *ngFor="let catNegocio of catNegocios" [value]="catNegocio.id_categorianegocio">
+        <ion-label color="morado">
+          <div class="divcont">
+            <img [src]="urlCat(catNegocio.nombre_categorianegocio, catNegocio.icono_categorianegocio)" style="height: 40px; width: auto;">
+          </div>
+          <span style="white-space: pre-line;">{{ catNegocio.nombre_categorianegocio }}</span>
+        </ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    
+</ion-header>
+
+<ion-content>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let result of results | filtro:textoNegocios:'palabrasclave_negocio'" size="12">
+
+        <ion-card  style="text-align: center;">
+          
+          <ion-card-header [routerLink]="['/negocio',result.id_negocio]">
+          
+          <img [src]="urlImagen(result.url_negocio,result.logo_negocio)" style="width: 50%;border-radius: 30px;" />
+
+          <!-- ioncard header va aca-->
+            <ion-card-subtitle>{{ result.direccion_negocio }} </ion-card-subtitle>
+            <ion-card-title>{{ result.nombre_negocio }}</ion-card-title>
+            <ion-label>  {{ result.descripcion_negocio }}</ion-label>
+          </ion-card-header>
+      
+          <ion-card-content>
+           
+          
+            <ion-item lines="none">
+
+            
+              <ion-button fill="clear">
+                <!--<ion-icon name="call" color="success" size="large"></ion-icon> -->
+                <a href="tel:{{ result.telefono_negocio}}">
+                  <ion-icon name="call" color="success" size="large"></ion-icon>
+                </a>
+              </ion-button>
+
+              <ion-button fill="clear">
+                <a href="{{result.dirmapa_negocio}}">
+                  <ion-icon name="location" color="danger" size="large"></ion-icon>
+                </a>
+              </ion-button>
+
+            </ion-item>
+          </ion-card-content>
+
+        
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- finaliza diseño-->
+
+
+
+</ion-content>

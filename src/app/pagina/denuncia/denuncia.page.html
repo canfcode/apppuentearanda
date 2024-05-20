@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">
+    <!-- icono volver inicio-->
+    <ion-buttons slot="start">
+      <!--<ion-icon slot="start" name="home-outline" size="large" style="padding-left:10px"></ion-icon>-->
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      <ion-title></ion-title>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col *ngFor="let denuncia of denuncia">
+    <ion-card>
+      <img [src]="urlImagen(denuncia.nombre_denuncia,denuncia.imagen_denuncia)" alt="">
+      <ion-card-header>
+        <ion-card-subtitle>{{denuncia.nombre_categoriadenuncia}}</ion-card-subtitle>
+        <ion-card-title>{{denuncia.nombre_denuncia}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text [innerHTML]="denuncia.contenido_denuncia | safehtml ">        
+        </ion-text>        
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+  
+</ion-content>

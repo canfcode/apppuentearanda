@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">    
+      <ion-buttons slot="start">
+        <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+        <ion-title>Aprende mas sobre tecnologia</ion-title>
+      </ion-buttons>
+     
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let curso of cursos" size="12">
+
+        <ion-card  style="text-align: center;">
+          
+          <ion-card-header [routerLink]="['/cursoapp',curso.id_curso]">
+          
+          <img [src]="urlImagen(curso.nombre_curso,curso.imagen_curso)" style="border-radius: 10px;" />
+
+          <!-- ioncard header va aca-->
+          
+            <ion-card-title>{{ curso.nombre_curso }}</ion-card-title>
+            <ion-label>  {{ curso.descripcion_curso }}</ion-label>
+          </ion-card-header>          
+
+        
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+
+</ion-content>

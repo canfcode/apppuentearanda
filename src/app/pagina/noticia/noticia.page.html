@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">
+    <!-- icono volver inicio-->
+    <ion-buttons slot="start">
+      <!--<ion-icon slot="start" name="home-outline" size="large" style="padding-left:10px"></ion-icon>-->
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+      <ion-title>Conoce tu localidad</ion-title>
+    </ion-buttons>
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-col *ngFor="let noticia of noticia">
+    <ion-card>
+      <img [src]="urlImagen(noticia.titulo_noticia,noticia.imagen_noticia)" alt="">
+      <ion-card-header>
+        <ion-card-subtitle>{{noticia.nombre_categorianoticia}}</ion-card-subtitle>
+        <ion-card-title>{{noticia.titulo_noticia}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text [innerHTML]="noticia.cuerpo_noticia | safehtml ">        
+        </ion-text>        
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+  
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">
+    <!-- icono volver inicio-->
+    <ion-buttons slot="start">
+      <!--<ion-icon slot="start" name="home-outline" size="large" style="padding-left:10px"></ion-icon>-->
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+
+    </ion-buttons>
+    <ion-title>Detalle Curso</ion-title>
+
+    <!-- finaliza -->
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-col *ngFor="let cur of curso">
+    <ion-card>
+      
+      <ion-card-header>
+    
+        <ion-card-title>{{cur.nombre_curso}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-text [innerHTML]="cur.contenido_curso | safehtml ">        
+        </ion-text>        
+      </ion-card-content>
+    </ion-card>
+  </ion-col>
+
+
+</ion-content>

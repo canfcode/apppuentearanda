@@ -1,0 +1,47 @@
+ion-content{
+ // --background: linear-gradient(94deg, #640682 0%, #d23ff0 100%);
+
+  //--background: rgb(233, 233, 233);
+  //--backgroud: rgb(247,247,247);
+  --backgroud:#f7f7f7
+}
+.header-image img {
+  width: 40%; 
+  display: block; 
+  margin: 0 auto; 
+}
+/* estilos para boton con button */ 
+.options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+
+}
+.custom-button {
+  width: 80%;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: solid 2px rgb(214, 210, 210);
+ // border-radius: 10px;
+  background-color: #ffff;
+  //background-color: rgb(255, 255, 255); /* Color de fondo del botón */
+  color: #666060; /* Color del texto del botón */
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: rgba(60, 2, 78, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.custom-button img {
+  width: 35px; /* Ancho de la imagen del icono */
+  margin-right: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.custom-button .arrow-icon {
+  margin-left: 15px; /* Espacio entre el texto y el icono de flecha */
+  
+}

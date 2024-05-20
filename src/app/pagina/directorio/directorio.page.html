@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="morado" style="padding:5px 0">
+
+    <!-- icono volver inicio-->
+    <ion-buttons slot="start" routerLink="/inicio">
+      <ion-icon slot="start" name="home-outline" size="large" style="padding-left:10px"></ion-icon>
+    </ion-buttons>
+
+    <!-- barra de busqueda -->
+    <ion-searchbar  placeholder="Buscar..." 
+     type="text" >
+    </ion-searchbar>
+
+     <!-- icino para noticias -->
+     <ion-buttons slot="end" routerLink="/noticias">
+       <ion-icon slot="start" name="document-outline" size="large" style="padding-left:10px"></ion-icon>
+     </ion-buttons>
+
+<!-- finaliza -->
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<!-- segmento -->
+<ion-segment scrollable  color="secondary" class="ion-padding-vertical">
+  <ion-segment-button value="standard">
+    <ion-img src="https://cdn.goconqr.com/uploads/media/image/19179804/desktop_a1b6bc89-1b56-4262-a54e-7a022807af8c.png"></ion-img>
+      <ion-label>Standard</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="hybrid">
+      <ion-img src="https://cdn.goconqr.com/uploads/media/image/19179804/desktop_a1b6bc89-1b56-4262-a54e-7a022807af8c.png"></ion-img>
+      <ion-label>Hybrid</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="sat">
+    <ion-img src="https://cdn.goconqr.com/uploads/media/image/19179804/desktop_a1b6bc89-1b56-4262-a54e-7a022807af8c.png"></ion-img>
+      <ion-label>Satellite</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="sat">
+    <ion-img src="https://cdn.goconqr.com/uploads/media/image/19179804/desktop_a1b6bc89-1b56-4262-a54e-7a022807af8c.png"></ion-img>
+    <ion-label>Satellite</ion-label>
+  </ion-segment-button>
+
+  <ion-segment-button value="sat">
+    <ion-img src="https://cdn.goconqr.com/uploads/media/image/19179804/desktop_a1b6bc89-1b56-4262-a54e-7a022807af8c.png"></ion-img>
+      <ion-label>Satellite</ion-label>
+  </ion-segment-button>
+
+</ion-segment>
+<!-- terminar -->
+
+</ion-content>

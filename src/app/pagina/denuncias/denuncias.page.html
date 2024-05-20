@@ -1,0 +1,44 @@
+<ion-header color="morado">
+  <ion-toolbar color="morado">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Denuncias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- categorias tramite-->
+  <ion-segment scrollable="true" color="morado" (ionChange)="categoriaDenuncia($event)">
+
+    <ion-segment-button color="morado" *ngFor="let catDenuncia of catDenuncias"
+      value={{catDenuncia.nombre_categoriadenuncia}}>
+      <ion-label color="morado" style="white-space:pre-line; text-align: left; font-size: 12px;">
+       {{ catDenuncia.nombre_categoriadenuncia }}
+      </ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col *ngFor="let denuncia of denuncias | filtro:categoriaD:'nombre_categoriadenuncia'" size="12">
+        <ion-card [routerLink]="['/denuncia/',denuncia.id_denuncia]">
+
+          <img [src]="urlImagen(denuncia.nombre_denuncia,denuncia.imagen_denuncia)" alt="">
+          <ion-card-header>
+            <ion-card-subtitle>{{ denuncia.nombre_categoriadenuncia}}</ion-card-subtitle>
+            <ion-card-title>{{ denuncia.nombre_denuncia }} </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content>
+            {{ denuncia.descripcion_denuncia}}
+          </ion-card-content>
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+

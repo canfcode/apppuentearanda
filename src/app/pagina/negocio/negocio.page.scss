@@ -1,0 +1,78 @@
+#c-principal{
+    width: 100%;
+    height: 500px;
+   
+}
+.timagen{
+    height: 25vh;
+  
+}
+/* codigo pruena */
+.contenedor {
+    position: relative;
+   
+}
+.c-logoo{
+   
+  z-index: 100;
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, 50%); 
+ 
+}
+/* termina codifo */
+ion-avatar{
+ width: 90px; 
+ height: 90px;
+ border: 1px solid;
+ color:#7F8C8D;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+#c-logo{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+#c-info{
+    width: 100%;
+}
+#redes{
+    --background:red;
+    display: flex;
+    justify-content: space-around;
+}
+ion-icon{
+    font-size: 25px;
+}
+
+ion-button{
+    width: 50%;
+    height: 45px;
+    color: white;
+   
+ }
+ ion-label{
+     font-size:12px;
+    
+     
+ }
+ ion-titel{
+     font-size: 14px;
+ }
+
+ #c-inf{
+     width:60%;
+     height: 150px;
+ }
+ a{
+    text-decoration: none;
+    color:black;
+ }
+
